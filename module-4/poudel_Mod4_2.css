@@ -1,0 +1,49 @@
+#container {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    color: rgba(255, 69, 0, 1); /* Optional*/
+}
+
+#image-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 10%;
+    gap: 0px; /* Adds space between the grid items */
+}
+
+#image-gallery div {
+    border: 2px solid rgba(139, 69, 19, 1); /* Brown color for the border */
+    padding: 20px; /* Add padding inside each div */
+}
+
+#image-gallery h3 {
+    text-align: center;
+    color: rgba(0, 100, 0, 1); /* Optional */
+}
+
+figure {
+    text-align: center;
+}
+
+figcaption {
+    font-style: italic;
+    font-size: 0.75em;
+    color: rgba(0, 0, 139, 1); /* Optional */
+}
+
+#last-div {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+#last-div a {
+    text-decoration: none;
+    color: #0000EE;
+}
+
+#last-div a:hover {
+    text-decoration: underline;
+}
