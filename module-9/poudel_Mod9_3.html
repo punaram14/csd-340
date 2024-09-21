@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang='en'>
+<!--
+      Professor Chandra Bobba
+       Assignment 9.3
+-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSD 340 Web Development with HTML and CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+        }
+        .speech {
+            margin: 0 auto;
+            width: 80%;
+            line-height: 1.6;
+        }
+        .button-group {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Assignment 9.3: JavaScript - Part 1</h1>
+    <div class="speech">
+        <p><strong>President Whitmore's Speech</strong></p>
+        <p>
+            Good morning. Good morning. In less than an hour aircrafts from here will join others from around the world and you will be launching the largest 
+            <span id="battleType">_________</span> battle in the history of mankind. That word should have new meaning for all of us today.
+        </p>
+        <p>
+            We can't be consumed by our petty differences anymore. We will be united in our common interest, perhaps <span id="destination">_________</span>.
+            Today is the Fourth of July and you will once again be fighting for our <span id="goal">_________</span>. Not from tyranny, oppression, or persecution. But from annihilation.
+        </p>
+        <p>
+            We're fighting for our right to live. To exist. And should we win the day, the Fourth of July will no longer be known as an American holiday, but as the day when the world declared 
+            in one voice: <span id="victoryPhrase">_________</span>.
+        </p>
+    </div>
+
+    <div class="button-group">
+        <button type="button" onclick="document.getElementById('battleType').innerHTML = battleType">Fill Battle Type</button>
+        <button type="button" onclick="document.getElementById('destination').innerHTML = destination">Fill Destination</button>
+        <button type="button" onclick="document.getElementById('goal').innerHTML = goal">Fill Goal</button>
+        <button type="button" onclick="document.getElementById('victoryPhrase').innerHTML = victoryPhrase">Fill Victory Phrase</button>
+    </div>
+
+    <script>
+        var battleType = "aerial";
+        var destination = "space";
+        var goal = "freedom";
+        var victoryPhrase = "We will not go quietly into the night!";
+    </script>
+</body>
+</html>
