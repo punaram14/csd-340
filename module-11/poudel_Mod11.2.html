@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSD 340 Web Development with HTML and CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        input {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Assignment 11.2: JavaScript - Part 3</h1>
+    <p>This is an interactive To Do List. Type in your first item in the text box, then click Add. Click the Display button to see current items in the list. Click on Delete Last Entry if you'd like to remove the last entry.</p>
+
+    <input type="text" id="inputBox" placeholder="Enter your item">
+    <button onclick="addItem()">Add</button>
+    <button onclick="deleteLastItem()">Delete Last Entry</button>
+    <button onclick="displayItems()">Display</button>
+
+    <hr>
+    <div id="displayList"></div>
+
+    <script>
+        let toDoList = [];
+
+        function addItem() {
+            const input = document.getElementById('inputBox').value;
+            if (input) {
+                toDoList.push(input);
+                alert(`Item: ${input} Added at index ${toDoList.length - 1}`);
+                document.getElementById('inputBox').value = '';
+            } else {
+                alert("Please enter an item.");
+            }
+        }
+
+        function deleteLastItem() {
+            if (toDoList.length > 0) {
+                toDoList.pop();
+                alert("Last item deleted.");
+            } else {
+                alert("No items to delete.");
+            }
+        }
+
+        function displayItems() {
+            let output = "";
+            if (toDoList.length === 0) {
+                output = "No items in the list.";
+            } else {
+                toDoList.forEach((item, index) => {
+                    output += `Item ${index + 1} = ${item}<br>`;
+                });
+            }
+            document.getElementById('displayList').innerHTML = output;
+        }
+    </script>
+</body>
+</html>
