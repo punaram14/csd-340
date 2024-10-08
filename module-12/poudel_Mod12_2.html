@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSD 340 Web Development with HTML and CSS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .list-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        #bookList, #learnedList {
+            border: 2px dashed #f04e23;
+            padding: 20px;
+            border-radius: 5px;
+            width: 45%;
+        }
+        #bookList {
+            border: 2px solid #f04e23;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        ul, ol {
+            text-align: left;
+        }
+        ul li, ol li {
+            list-style-type: none;
+        }
+        button {
+            margin: 10px;
+            padding: 5px 15px;
+            border: 1px solid #f04e23;
+            background-color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #f04e23;
+            color: white;
+        }
+        #bookList button {
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        footer {
+            margin-top: 30px;
+        }
+        a {
+            text-decoration: none;
+            color: #f04e23;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Assignment 12.2: JavaScript - Part 4</h1>
+
+        <div class="list-container">
+            <div id="bookList">
+                <h2>Top 10 Favorite Books</h2>
+                <button onclick="sortBooks('asc')">Top to Bottom</button>
+                <button onclick="sortBooks('desc')">Bottom to Top</button>
+                <ul id="books"></ul>
+            </div>
+
+            <div id="learnedList">
+                <h2>5 Things I've Learned Since the Course Started</h2>
+                <ol>
+                    <li>Understanding JavaScript basics</li>
+                    <li>Building responsive layouts with CSS</li>
+                    <li>Creating interactive web pages</li>
+                    <li>Learning how to debug code</li>
+                    <li>Using version control with GitHub</li>
+                </ol>
+            </div>
+        </div>
+
+        <footer>
+            <a href="../index.html">back to Landing Page</a>
+        </footer>
+    </div>
+
+    <script>
+        // Array of favorite books
+        const booksArray = [
+            "The Lost King",
+            "Dies the Fire",
+            "The Stand",
+            "Dune",
+            "Do Androids Dream of Electric Sheep?",
+            "The Hobbit",
+            "The Art of Deception",
+            "Papillon",
+            "The Godfather",
+            "A Wrinkle in Time"
+        ];
+
+        // Display the books on page load
+        window.onload = function() {
+            displayBooks(booksArray.reverse());  // Display books in descending order by default
+        };
+
+        // Function to display the books
+        function displayBooks(books) {
+            const booksList = document.getElementById('books');
+            booksList.innerHTML = '';  // Clear the list before displaying
+            books.forEach(book => {
+                const listItem = document.createElement('li');
+                listItem.textContent = book;
+                booksList.appendChild(listItem);
+            });
+        }
+
+        // Function to sort books and update display
+        function sortBooks(order) {
+            const sortedBooks = [...booksArray];
+            if (order === 'asc') {
+                sortedBooks.sort();  // Sort in ascending order
+            } else {
+                sortedBooks.sort().reverse();  // Sort in descending order
+            }
+            displayBooks(sortedBooks);  // Update the display
+        }
+    </script>
+</body>
+</html>
